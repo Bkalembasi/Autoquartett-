@@ -4,7 +4,10 @@
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Test für Burak the Glurak");
+            GUI gui = new GUI();
+            gui.WriteRectangle(System.Console.WindowWidth - 1,System.Console.WindowHeight - 1);
+
+            System.Console.ReadLine();
         }
     }
 }
