@@ -8,72 +8,119 @@ namespace Autoquartett
 {
     class Car
     {
-        int kmPerH;
-        int ps;
-        int cm;
-        int ccm;
-        int zylinder;
-        float acceleration;
+        private string brand;
+        private string model;
+        private string carClass;
+        private int kmPerH;
+        private int ps;
+        private double consumption;
+        private int ccm;
+        private int piston;
+        private double acceleration;
+
+
+        public void setBrand(string ParamBrand)
+        {
+            this.brand = ParamBrand;
+        }
+
+        public string getBrand()
+        {
+            return this.brand;
+        }
+
+        public void setModel(string ParamModel)
+        {
+            this.model = ParamModel;
+        }
+
+        public string getModel()
+        {
+            return this.model;
+        }
+
+        public void setCarClass(string ParamCarClass)
+        {
+            this.carClass = ParamCarClass;
+        }
+
+        public string getCarClass()
+        {
+            return this.carClass;
+        }
 
         public void SetKmPerH(int ParamKmPerH)
         {
             this.kmPerH = ParamKmPerH;
         }
+
         public int GetKmPerH()
         {
-            return (kmPerH);
+            return (this.kmPerH);
         }
+
         public void SetPs(int ParamPs)
         {
             this.ps = ParamPs;
         }
+
         public int GetPs()
         {
-            return (ps);
+            return (this.ps);
         }
-        public void SetCm(int ParamCm)
+
+        public void SetConsumption(double ParamConsumption)
         {
-            this.cm = ParamCm;
+            this.consumption = ParamConsumption;
         }
-        public int GetCm()
+
+        public double GetConsumption()
         {
-            return (cm);
+            return (this.consumption);
         }
+
         public void SetCcm(int ParamCcm)
         {
             this.ccm = ParamCcm;
         }
+
         public int GetCcm()
         {
-            return (ccm);
+            return (this.ccm);
         }
-        public void SetZylinder(int ParamZyliner)
+
+        public void SetPiston(int ParamPiston)
         {
-            this.zylinder = ParamZyliner;
+            this.piston = ParamPiston;
         }
-        public int GetZylinder()
+
+        public int GetPiston()
         {
-            return (zylinder);
+            return (this.piston);
         }
-        public void SetAcceleration(float ParamAcceleration)
+
+        public void SetAcceleration(double ParamAcceleration)
         {
             this.acceleration = ParamAcceleration;
         }
-        public float GetAcceleration()
+
+        public double GetAcceleration()
         {
-            return (acceleration);
+            return (this.acceleration);
         }
+
         public void GetCardInformation()
         {
             //TODO
             Console.WriteLine(this.GetAcceleration());
             Console.WriteLine(this.GetCcm());
-            Console.WriteLine(this.GetCm());
+            Console.WriteLine(this.GetConsumption());
             Console.WriteLine(this.GetKmPerH());
             Console.WriteLine(this.GetPs());
-            Console.WriteLine(this.GetZylinder());
+            Console.WriteLine(this.GetPiston());
         }
-        public double Comparison(double[] values, bool higherNumber) 
+
+        public double Comparison(double[] values, bool higherNumber)
         {
             double tempHighest = 0;
             double tempLowest = 0;
@@ -98,8 +145,27 @@ namespace Autoquartett
             {
                 return tempLowest;
             }
- 
+        }
+
+        public override string ToString()
+        {
+            string ausgabe;
+
+            ausgabe = String.Format("Marke: {0} \n" +
+                                    "Modell: {1} \n" +
+                                    "Klasse: {2} \n" +
+                                    "Km/h: {3} \n" +
+                                    "Ps: {4} \n" +
+                                    "Verbrauch: {5} \n" +
+                                    "Hubraum: {6} \n" +
+                                    "Anzahl zylinder: {7} \n" +
+                                    "Beschleunigung: {8} \n\n",
+                getBrand(), getModel(),
+                getCarClass(), GetKmPerH(),
+                GetPs(), GetConsumption(),
+                GetCcm(), GetPiston(),
+                GetAcceleration());
+            return ausgabe;
         }
     }
-
 }
